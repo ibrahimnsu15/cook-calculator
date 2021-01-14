@@ -106,8 +106,8 @@
               <h5 style="margin: auto 0">Doneness</h5>
               <div style="margin-left: 15px">
                 <select id="selectDoneness" class="form-control">
-                  <option style="display: none">Doneness</option>
-                  <!--<option>Test</option>-->
+                  <!--<option style="display: none">Doneness</option>
+                  <option>Test</option>-->
                 </select>
               </div>
             </div>
@@ -133,13 +133,14 @@
                         >
                           <li class="nav-item">
                             <a
+                              id="weightSelectButtonID"
                               class="nav-link rounded active"
                               id="pills-cloud-tab"
                               data-toggle="pill"
                               href="#pills-cloud"
                               role="tab"
                               aria-controls="pills-cloud"
-                              aria-selected="false"
+                              aria-selected="true"
                             >
                               <div class="text-center py-2">
                                 <h6 class="mb-0">Weight</h6>
@@ -151,6 +152,7 @@
 
                           <li class="nav-item">
                             <a
+                              id="thicknessSelectButtonID"
                               class="nav-link rounded"
                               id="pills-smart-tab"
                               data-toggle="pill"
@@ -185,6 +187,7 @@
                             <div class="row">
                               <div class="col-lg-7" style="padding-right: 0px">
                                 <input
+                                  id="weightInputId"
                                   class="measurement-inputs"
                                   type="number"
                                   placeholder="Weight"
@@ -206,7 +209,7 @@
                                       color: #495057;
                                     "
                                   >
-                                    Max 1000 g
+                                    Max 5000
                                   </p>
                                 </div>
                               </div>
@@ -223,6 +226,7 @@
                             <div class="row">
                               <div class="col-lg-7" style="padding-right: 0px">
                                 <input
+                                  id="thicknessInputId"
                                   class="measurement-inputs"
                                   type="number"
                                   placeholder="Thickness"
@@ -244,7 +248,7 @@
                                       color: #495057;
                                     "
                                   >
-                                    Max 6 mm
+                                    Max 100
                                   </p>
                                 </div>
                               </div>
@@ -263,7 +267,7 @@
             </div>
             <div class="row" style="margin-top: 10px">
               <a
-                href="#"
+                href="javascript:calculate()"
                 class="btn btn-primary"
                 style="margin: auto; width: 97%; font-size: large"
               >
@@ -271,7 +275,7 @@
               </a>
             </div>
 
-            <div class="row" style="padding: 15px">
+            <div class="row" style="padding: 15px" id="resultId">
               <div
                 class="component-wrapper rounded shadow"
                 style="width: 100%; padding: 15px"
@@ -280,13 +284,19 @@
                 <button class="results">
                   <h5 style="margin-bottom: 0px">
                     Temperature:
-                    <span style="padding-left: 10px"> 15 &#8451;</span>
+                    <span style="padding-left: 10px">
+                      <span id="temperatureResult">123</span
+                      ><span id="temperatureSymbolId">&#8451;</span></span
+                    >
                   </h5>
                 </button>
                 <br />
                 <button class="results" style="margin-top: 5px">
                   <h5 style="margin-bottom: 0px">
-                    Duration: <span style="padding-left: 50px"> 40 min</span>
+                    Duration:
+                    <span id="durationResult" style="padding-left: 50px">
+                      40 min</span
+                    >
                   </h5>
                 </button>
               </div>
@@ -313,11 +323,12 @@
                 >
                   <li class="nav-item">
                     <a
+                      id="cSelectId"
                       class="nav-link rounded active"
                       data-toggle="pill"
                       role="tab"
                       aria-controls="pills-cloud"
-                      aria-selected="false"
+                      aria-selected="true"
                     >
                       <div class="text-center py-2">
                         <h6 class="mb-0">&#8451;</h6>
@@ -351,11 +362,12 @@
                 >
                   <li class="nav-item">
                     <a
+                      id="mmSelectId"
                       class="nav-link rounded active"
                       data-toggle="pill"
                       role="tab"
                       aria-controls="pills-cloud"
-                      aria-selected="false"
+                      aria-selected="true"
                     >
                       <div class="text-center py-2">
                         <h6 class="mb-0">mm</h6>
@@ -389,11 +401,12 @@
                 >
                   <li class="nav-item">
                     <a
+                      id="gSelectId"
                       class="nav-link rounded active"
                       data-toggle="pill"
                       role="tab"
                       aria-controls="pills-cloud"
-                      aria-selected="false"
+                      aria-selected="true"
                     >
                       <div class="text-center py-2">
                         <h6 class="mb-0">g</h6>
