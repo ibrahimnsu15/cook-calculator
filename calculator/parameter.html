@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Duck Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Premium Bootstrap 4 Landing Page Template"
+    />
+    <meta
+      name="keywords"
+      content="Saas, Software, multi-uses, HTML, Clean, Modern"
+    />
+    <meta name="author" content="Shreethemes" />
+    <meta name="email" content="shreethemes@gmail.com" />
+    <meta name="website" content="http://www.shreethemes.in" />
+    <meta name="Version" content="v2.6" />
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <!-- Bootstrap -->
+    <link href="../css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Icons -->
+    <link
+      href="../css/materialdesignicons.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Main Css -->
+    <link
+      href="../css/style.css"
+      rel="stylesheet"
+      type="text/css"
+      id="theme-opt"
+    />
+    <link href="../css/colors/default.css" rel="stylesheet" id="color-opt" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Navbar STart -->
+    <header id="topnav" class="defaultscroll sticky">
+      <div class="container">
+        <!-- Logo container-->
+        <div>
+          <!-- <a class="logo" href="index.html">
+                    <img src="images/logo-dark.png" height="24" alt="">
+                </a> -->
+          <a class="logo" href="../index.html">
+            <h1 style="font-weight: bold; color: #060606">KitchenCore</h1>
+          </a>
+        </div>
+        <!--end login button-->
+        <!-- End Logo container-->
+        <div class="menu-extras">
+          <div class="menu-item">
+            <!-- Mobile menu toggle-->
+            <a class="navbar-toggle">
+              <div class="lines">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </a>
+            <!-- End mobile menu toggle-->
+          </div>
+        </div>
+
+        <div id="navigation">
+          <!-- Navigation Menu-->
+          <ul class="navigation-menu">
+            <li><a href="../index.html">HOME</a></li>
+            <li><a href="animal.html">SOUSVIDE CALCULATOR</a></li>
+            <li><a href="../index.html">CONTACT US</a></li>
+          </ul>
+        </div>
+        <!--end navigation-->
+      </div>
+      <!--end container-->
+    </header>
+    <!--end header-->
+    <!-- Navbar End -->
+
+    <!-- Hero Start -->
+
+    <section class="bg-marketing d-table w-100" id="home">
+      <div style="margin-top: 60px">
+        <div>
+          <button class="back-button" onclick="goBack()">
+            <i class="fas fa-arrow-left"></i> Back
+          </button>
+          <h3 id="animalName" style="text-align: center; margin: -10px"></h3>
+          <h1 id="cutName" style="text-align: center; margin: -15px"></h1>
+        </div>
+        <div
+          class="row justify-content-center"
+          style="padding-top: 0px; margin-left: auto"
+        >
+          <div class="col-lg-3"></div>
+          <div class="col-lg-6">
+            <h4 style="text-align: left">Choose Parameter:</h4>
+            <div class="row" style="padding: 15px">
+              <h5 style="margin: auto 0">Doneness</h5>
+              <div style="margin-left: 15px">
+                <select id="selectDoneness" class="form-control">
+                  <option style="display: none">Doneness</option>
+                  <!--<option>Test</option>-->
+                </select>
+              </div>
+            </div>
+            <div class="row" id="measurementId">
+              <div class="col" id="nav-tabs">
+                <div class="component-wrapper rounded shadow">
+                  <div class="p-2">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <h5
+                          style="
+                            position: absolute;
+                            margin-top: 5px;
+                            display: block;
+                          "
+                        >
+                          Measurement
+                        </h5>
+                        <ul
+                          class="nav nav-pills nav-justified flex-column flex-sm-row rounded"
+                          id="pills-tab"
+                          role="tablist"
+                        >
+                          <li class="nav-item">
+                            <a
+                              class="nav-link rounded active"
+                              id="pills-cloud-tab"
+                              data-toggle="pill"
+                              href="#pills-cloud"
+                              role="tab"
+                              aria-controls="pills-cloud"
+                              aria-selected="false"
+                            >
+                              <div class="text-center py-2">
+                                <h6 class="mb-0">Weight</h6>
+                              </div>
+                            </a>
+                            <!--end nav link-->
+                          </li>
+                          <!--end nav item-->
+
+                          <li class="nav-item">
+                            <a
+                              class="nav-link rounded"
+                              id="pills-smart-tab"
+                              data-toggle="pill"
+                              href="#pills-smart"
+                              role="tab"
+                              aria-controls="pills-smart"
+                              aria-selected="false"
+                            >
+                              <div class="text-center py-2">
+                                <h6 class="mb-0">Thickness</h6>
+                              </div>
+                            </a>
+                            <!--end nav link-->
+                          </li>
+                          <!--end nav item-->
+                        </ul>
+                        <!--end nav pills-->
+                      </div>
+                      <!--end col-->
+                    </div>
+                    <!--end row-->
+
+                    <div class="row pt-2">
+                      <div class="col-12">
+                        <div class="tab-content" id="pills-tabContent">
+                          <div
+                            class="tab-pane fade show active"
+                            id="pills-cloud"
+                            role="tabpanel"
+                            aria-labelledby="pills-cloud-tab"
+                          >
+                            <div class="row">
+                              <div class="col-lg-7" style="padding-right: 0px">
+                                <input
+                                  class="measurement-inputs"
+                                  type="number"
+                                  placeholder="Weight"
+                                />
+                              </div>
+                              <div class="col-lg-5">
+                                <div
+                                  style="
+                                    margin: auto;
+                                    display: block;
+                                    padding: 15px;
+                                    padding-left: 0px;
+                                  "
+                                >
+                                  <p
+                                    style="
+                                      float: left;
+                                      font-weight: bolder;
+                                      color: #495057;
+                                    "
+                                  >
+                                    Max 1000 g
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--end teb pane-->
+
+                          <div
+                            class="tab-pane fade"
+                            id="pills-smart"
+                            role="tabpanel"
+                            aria-labelledby="pills-smart-tab"
+                          >
+                            <div class="row">
+                              <div class="col-lg-7" style="padding-right: 0px">
+                                <input
+                                  class="measurement-inputs"
+                                  type="number"
+                                  placeholder="Thickness"
+                                />
+                              </div>
+                              <div class="col-lg-5">
+                                <div
+                                  style="
+                                    margin: auto;
+                                    display: block;
+                                    padding: 15px;
+                                    padding-left: 0px;
+                                  "
+                                >
+                                  <p
+                                    style="
+                                      float: left;
+                                      font-weight: bolder;
+                                      color: #495057;
+                                    "
+                                  >
+                                    Max 6 mm
+                                  </p>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--end teb pane-->
+                        </div>
+                        <!--end tab content-->
+                      </div>
+                      <!--end col-->
+                    </div>
+                    <!--end row-->
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="margin-top: 10px">
+              <a
+                href="#"
+                class="btn btn-primary"
+                style="margin: auto; width: 97%; font-size: large"
+              >
+                Calculate
+              </a>
+            </div>
+
+            <div class="row" style="padding: 15px">
+              <div
+                class="component-wrapper rounded shadow"
+                style="width: 100%; padding: 15px"
+              >
+                <h3>Results</h3>
+                <button class="results">
+                  <h5 style="margin-bottom: 0px">
+                    Temperature:
+                    <span style="padding-left: 10px"> 15 &#8451;</span>
+                  </h5>
+                </button>
+                <br />
+                <button class="results" style="margin-top: 5px">
+                  <h5 style="margin-bottom: 0px">
+                    Duration: <span style="padding-left: 50px"> 40 min</span>
+                  </h5>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-1"></div>
+          <div class="col-lg-2">
+            <div style="margin-right: 40px">
+              <div
+                class="row"
+                style="border: 1px solid gray; padding: 8px; border-radius: 8px"
+              >
+                <h6
+                  style="display: block; margin-left: auto; margin-right: auto"
+                >
+                  Preferences
+                </h6>
+                <ul
+                  class="nav nav-pills nav-justified flex-column flex-sm-row rounded"
+                  id="pills-tab"
+                  role="tablist"
+                  style="width: 100%; margin: 0px; margin-bottom: 2px"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link rounded active"
+                      data-toggle="pill"
+                      role="tab"
+                      aria-controls="pills-cloud"
+                      aria-selected="false"
+                    >
+                      <div class="text-center py-2">
+                        <h6 class="mb-0">&#8451;</h6>
+                      </div>
+                    </a>
+                    <!--end nav link-->
+                  </li>
+                  <!--end nav item-->
+
+                  <li class="nav-item">
+                    <a
+                      class="nav-link rounded"
+                      data-toggle="pill"
+                      role="tab"
+                      aria-controls="pills-smart"
+                      aria-selected="false"
+                    >
+                      <div class="text-center py-2">
+                        <h6 class="mb-0">&#8457;</h6>
+                      </div>
+                    </a>
+                    <!--end nav link-->
+                  </li>
+                  <!--end nav item-->
+                </ul>
+                <ul
+                  class="nav nav-pills nav-justified flex-column flex-sm-row rounded"
+                  id="pills-tab"
+                  role="tablist"
+                  style="width: 100%; margin: 0px; margin-bottom: 2px"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link rounded active"
+                      data-toggle="pill"
+                      role="tab"
+                      aria-controls="pills-cloud"
+                      aria-selected="false"
+                    >
+                      <div class="text-center py-2">
+                        <h6 class="mb-0">mm</h6>
+                      </div>
+                    </a>
+                    <!--end nav link-->
+                  </li>
+                  <!--end nav item-->
+
+                  <li class="nav-item">
+                    <a
+                      class="nav-link rounded"
+                      data-toggle="pill"
+                      role="tab"
+                      aria-controls="pills-smart"
+                      aria-selected="false"
+                    >
+                      <div class="text-center py-2">
+                        <h6 class="mb-0">in</h6>
+                      </div>
+                    </a>
+                    <!--end nav link-->
+                  </li>
+                  <!--end nav item-->
+                </ul>
+                <ul
+                  class="nav nav-pills nav-justified flex-column flex-sm-row rounded"
+                  id="pills-tab"
+                  role="tablist"
+                  style="width: 100%; margin: 0px"
+                >
+                  <li class="nav-item">
+                    <a
+                      class="nav-link rounded active"
+                      data-toggle="pill"
+                      role="tab"
+                      aria-controls="pills-cloud"
+                      aria-selected="false"
+                    >
+                      <div class="text-center py-2">
+                        <h6 class="mb-0">g</h6>
+                      </div>
+                    </a>
+                    <!--end nav link-->
+                  </li>
+                  <!--end nav item-->
+
+                  <li class="nav-item">
+                    <a
+                      class="nav-link rounded"
+                      data-toggle="pill"
+                      role="tab"
+                      aria-controls="pills-smart"
+                      aria-selected="false"
+                    >
+                      <div class="text-center py-2">
+                        <h6 class="mb-0">oz</h6>
+                      </div>
+                    </a>
+                    <!--end nav link-->
+                  </li>
+                  <!--end nav item-->
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--end row-->
+      </div>
+      <!--end container-->
+    </section>
+    <!--end section-->
+    <!-- Hero End -->
+
+    <!--end footer-->
+    <footer class="footer footer-bar">
+      <div class="container text-center">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <div class="text-sm-left">
+              <p class="mb-0">
+                ©
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                Ameswire.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!--end row-->
+      </div>
+      <!--end container-->
+    </footer>
+    <!--end footer-->
+    <!-- Footer End -->
+
+    <!-- Back to top -->
+    <!-- <a href="#" class="btn btn-icon btn-primary back-to-top"><i data-feather="arrow-up" class="icons"></i></a> -->
+    <!-- Back to top -->
+
+    <!-- javascript -->
+    <script src="../js/jquery-3.5.1.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery.easing.min.js"></script>
+    <script>
+      /*$.getJSON("../data/animals.json", function (data) {
+        const beef = data[0];
+        const bird = data[0].BIRD;
+        // var items = [];
+        // $.each(data, function (key, val) {
+        //     items.push("<li id='" + key + "'>" + val + "</li>");
+        // });
+
+        // $("<ul/>", {
+        //     "class": "my-new-list",
+        //     html: items.join("")
+        // }).appendTo("body");
+
+        console.log(beef);
+        // console.log(bird)
+      });*/
+    </script>
+
+    <!-- Icons -->
+    <script src="https://unicons.iconscout.com/release/v3.0.3/script/monochrome/bundle.js"></script>
+    <!-- Main Js -->
+    <script src="../js/app.js"></script>
+    <script src="../js/query.js"></script>
+  </body>
+</html>
