@@ -47,11 +47,11 @@ function show_cut_list() {
           let cutName = response[index].cuts[cutCode].name.en[i];
           //   let cutName = response[index]["cuts"][cutCode]["name"]["en"][j];
           cutItem =
-            '<div class="row" style="padding: 10px; padding-top: 9px"><div class="detail-grid-option"><a href="parameter.html" onclick="cut_select(\'' +
+            '<div class="row cutList" style="padding: 10px; padding-top: 9px"><div class="detail-grid-option"><a href="parameter.html" onclick="cut_select(\'' +
             cutCode +
             "','" +
             cutName +
-            "')\"><h4>" +
+            "')\"><h4 class='cutName'>" +
             cutName +
             "</h4></a></div></div>";
           $("#cutList").append(cutItem);
@@ -59,6 +59,24 @@ function show_cut_list() {
       }
     },
   });
+}
+
+function searchCuts() {
+  var input, filter, divList, li, a, i, txtValue;
+  input = $("#searchInput").val();
+  filter = input.toUpperCase();
+  console.log(filter);
+  divList = $(".cutList");
+  li = $(".cutName");
+  for (i = 0; i < li.length; i++) {
+    txtValue = li[i].innerText;
+    // console.log(txtValue);
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      divList[i].style.display = "";
+    } else {
+      divList[i].style.display = "none";
+    }
+  }
 }
 
 function configureInputField() {
@@ -85,12 +103,20 @@ function configureInputField() {
         donenessTmp = doneness;
         $("#selectDoneness").append(new Option(doneness, doneness));
       }
-
+      console.log(
+        response[index].cuts[cutCode].weight[donenessTmp].values.length
+      );
+      console.log(
+        response[index].cuts[cutCode].size[donenessTmp].values.length
+      );
       if (
         response[index].cuts[cutCode].weight[donenessTmp].values.length < 2 &&
         response[index].cuts[cutCode].size[donenessTmp].values.length < 2
       ) {
         $("#measurementId").hide();
+      } else if (
+        response[index].cuts[cutCode].weight[donenessTmp].values.length < 2
+      ) {
       }
 
       //end
