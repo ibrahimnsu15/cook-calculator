@@ -228,10 +228,9 @@ function calculate() {
               inputValue
             ) {
               set_result(
-                response[index].cuts[cutCode].weight[doneness].values[i]
+                response[index].cuts[cutCode].size[doneness].values[i]
                   .temperature,
-                response[index].cuts[cutCode].weight[doneness].values[i]
-                  .duration
+                response[index].cuts[cutCode].size[doneness].values[i].duration
               );
               flag = false;
               break;
@@ -253,11 +252,9 @@ function set_result(temperature, duration) {
   $("#resultId").show();
 
   if ($("#cSelectId").attr("aria-selected") == "true") {
-    console.log("Test1");
     $("#temperatureResult").text(temperature);
     $("#temperatureSymbolId").html("&#8451;");
   } else {
-    console.log("Test");
     let f = temperature * (9 / 5) + 32;
     f = f.toFixed(2);
     $("#temperatureResult").text(f);
