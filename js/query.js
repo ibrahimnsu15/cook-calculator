@@ -1,10 +1,3 @@
-console.log("Test json");
-var data;
-$.getJSON("../data.json", function (info) {
-  //   console.log(data[0]["names"]["en"]); // this will show the info it in firebug console
-  data = info;
-});
-
 function animal_select(index, animalNameEn, animalNameDe) {
   sessionStorage.setItem("index", index);
   sessionStorage.setItem("animalNameEn", animalNameEn);
@@ -102,12 +95,6 @@ function configureInputField() {
         donenessTmp = doneness;
         $("#selectDoneness").append(new Option(doneness, doneness));
       }
-      console.log(
-        response[index].cuts[cutCode].weight[donenessTmp].values.length
-      );
-      console.log(
-        response[index].cuts[cutCode].size[donenessTmp].values.length
-      );
       if (
         response[index].cuts[cutCode].weight[donenessTmp].values.length < 2 &&
         response[index].cuts[cutCode].size[donenessTmp].values.length < 2
@@ -116,6 +103,7 @@ function configureInputField() {
       } else if (
         response[index].cuts[cutCode].weight[donenessTmp].values.length < 2
       ) {
+        $("#weightSelectButtonID").attr("data-toggle", "blank");
       }
 
       //end
