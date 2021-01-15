@@ -41,299 +41,309 @@
   </head>
 
   <body>
-    <!-- Navbar STart -->
-    <header id="topnav" class="defaultscroll sticky">
-      <div class="container">
-        <!-- Logo container-->
-        <div>
-          <!-- <a class="logo" href="index.html">
-                    <img src="images/logo-dark.png" height="24" alt="">
-                </a> -->
-          <a class="logo" href="../index.html">
-            <h1 style="font-weight: bold; color: #060606">KitchenCore</h1>
-          </a>
-        </div>
-        <!--end login button-->
-        <!-- End Logo container-->
-        <div class="menu-extras">
-          <div class="menu-item">
-            <!-- Mobile menu toggle-->
-            <a class="navbar-toggle">
-              <div class="lines">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
+    <div id="animalSelectView">
+      <!-- Navbar STart -->
+      <header id="topnav" class="defaultscroll sticky">
+        <div class="container">
+          <!-- Logo container-->
+          <div>
+            <!-- <a class="logo" href="index.html">
+                      <img src="images/logo-dark.png" height="24" alt="">
+                  </a> -->
+            <a class="logo" href="../index.html">
+              <h1 style="font-weight: bold; color: #060606">KitchenCore</h1>
             </a>
-            <!-- End mobile menu toggle-->
           </div>
-        </div>
+          <!--end login button-->
+          <!-- End Logo container-->
+          <div class="menu-extras">
+            <div class="menu-item">
+              <!-- Mobile menu toggle-->
+              <a class="navbar-toggle">
+                <div class="lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+              </a>
+              <!-- End mobile menu toggle-->
+            </div>
+          </div>
 
-        <div id="navigation">
-          <!-- Navigation Menu-->
-          <ul class="navigation-menu">
-            <li><a href="../index.html">HOME</a></li>
-            <li><a href="animal.html">SOUSVIDE CALCULATOR</a></li>
-            <li><a href="../index.html">CONTACT US</a></li>
-          </ul>
+          <div id="navigation">
+            <!-- Navigation Menu-->
+            <ul class="navigation-menu">
+              <li><a href="../index.html">HOME</a></li>
+              <li><a href="animal.html">SOUSVIDE CALCULATOR</a></li>
+              <li><a href="../index.html">CONTACT US</a></li>
+            </ul>
+          </div>
+          <!--end navigation-->
         </div>
-        <!--end navigation-->
-      </div>
-      <!--end container-->
-    </header>
-    <!--end header-->
-    <!-- Navbar End -->
+        <!--end container-->
+      </header>
+      <!--end header-->
+      <!-- Navbar End -->
 
-    <!-- Hero Start -->
-    <section class="bg-marketing d-table w-100" id="home">
-      <div style="margin-top: 80px">
-        <div>
-          <button class="back-button" onclick="goBack()">
-            <i class="fas fa-arrow-left"></i> Back
-          </button>
-        </div>
-        <h2 style="text-align: center" id="animalNameEn"></h2>
-        <h2 style="text-align: center" id="animalNameDe" hidden></h2>
-        <h4 style="text-align: center">Select Cut Below</h4>
-        <div
-          class="row"
-          style="padding: 10px; padding-top: 9px; text-align: center"
-        >
-          <input
-            id="searchInput"
-            onkeyup="searchCuts()"
-            class="search-bar"
-            type="text"
-            placeholder="Search"
-          />
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-lg-3"></div>
+      <!-- Hero Start -->
+      <section class="bg-marketing d-table w-100" id="home">
+        <div style="margin-top: 80px">
+          <div>
+            <button class="back-button" onclick="goBack()">
+              <i class="fas fa-arrow-left"></i> Back
+            </button>
+          </div>
+          <h2 style="text-align: center" id="animalNameEn"></h2>
+          <h2 style="text-align: center" id="animalNameDe" hidden></h2>
+          <h4 style="text-align: center">Select Cut Below</h4>
           <div
-            id="cutList"
-            class="col-lg-6 scrollable-section"
-            style="overflow-y: scroll"
+            class="row"
+            style="padding: 10px; padding-top: 9px; text-align: center"
           >
-            <!--<div class="row" style="padding: 10px; padding-top: 9px">
-              <div class="detail-grid-option">
-                <a href="parameter.html">
-                  <h4>Cowboy Steak</h4>
-                </a>
-              </div>
-            </div>
-            <div class="row" style="padding: 10px; padding-top: 0px">
-              <div class="detail-grid-option">
-                <a href="./calculator/beef.html">
-                  <h4>Stew Meat</h4>
-                </a>
-              </div>
-            </div>
-            <div class="row" style="padding: 10px; padding-top: 0px">
-              <div class="detail-grid-option">
-                <a href="./calculator/beef.html">
-                  <h4>Beef Cubes</h4>
-                </a>
-              </div>
-            </div>
-            <div class="row" style="padding: 10px; padding-top: 0px">
-              <div class="detail-grid-option">
-                <a href="./calculator/beef.html">
-                  <h4>White Muscle Beef</h4>
-                </a>
-              </div>
-            </div>
-            <div class="row" style="padding: 10px; padding-top: 0px">
-              <div class="detail-grid-option">
-                <a href="./calculator/beef.html">
-                  <h4>Viking Steak</h4>
-                </a>
-              </div>
-            </div>
-            <div class="row" style="padding: 10px; padding-top: 0px">
-              <div class="detail-grid-option">
-                <a href="./calculator/beef.html">
-                  <h4>Bone-in Ribeye</h4>
-                </a>
-              </div>
-            </div>
-            <div class="row" style="padding: 10px; padding-top: 0px">
-              <div class="detail-grid-option">
-                <a href="./calculator/beef.html">
-                  <h4>Sarutoga Ribeye</h4>
-                </a>
-              </div>
-            </div>
-            <div class="row" style="padding: 10px; padding-top: 0px">
-              <div class="detail-grid-option">
-                <a href="./calculator/beef.html">
-                  <h4>Sarutoga Ribeye</h4>
-                </a>
-              </div>
-            </div>
-            <div class="row" style="padding: 10px; padding-top: 0px">
-              <div class="detail-grid-option">
-                <a href="./calculator/beef.html">
-                  <h4>Sarutoga Ribeye</h4>
-                </a>
-              </div>
-            </div>
-            <div class="row" style="padding: 10px; padding-top: 0px">
-              <div class="detail-grid-option">
-                <a href="./calculator/beef.html">
-                  <h4>Sarutoga Ribeye</h4>
-                </a>
-              </div>
-            </div>
-            <div class="row" style="padding: 10px; padding-top: 0px">
-              <div class="detail-grid-option">
-                <a href="./calculator/beef.html">
-                  <h4>Sarutoga Ribeye</h4>
-                </a>
-              </div>
-            </div>-->
+            <input
+              id="searchInput"
+              onkeyup="searchCuts()"
+              class="search-bar"
+              type="text"
+              placeholder="Search"
+            />
           </div>
+          <div class="row justify-content-center">
+            <div class="col-lg-3"></div>
+            <div
+              id="cutList"
+              class="col-lg-6 scrollable-section"
+              style="overflow-y: scroll"
+            >
+              <!--<div class="row" style="padding: 10px; padding-top: 9px">
+                <div class="detail-grid-option">
+                  <a href="parameter.html">
+                    <h4>Cowboy Steak</h4>
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="padding: 10px; padding-top: 0px">
+                <div class="detail-grid-option">
+                  <a href="./calculator/beef.html">
+                    <h4>Stew Meat</h4>
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="padding: 10px; padding-top: 0px">
+                <div class="detail-grid-option">
+                  <a href="./calculator/beef.html">
+                    <h4>Beef Cubes</h4>
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="padding: 10px; padding-top: 0px">
+                <div class="detail-grid-option">
+                  <a href="./calculator/beef.html">
+                    <h4>White Muscle Beef</h4>
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="padding: 10px; padding-top: 0px">
+                <div class="detail-grid-option">
+                  <a href="./calculator/beef.html">
+                    <h4>Viking Steak</h4>
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="padding: 10px; padding-top: 0px">
+                <div class="detail-grid-option">
+                  <a href="./calculator/beef.html">
+                    <h4>Bone-in Ribeye</h4>
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="padding: 10px; padding-top: 0px">
+                <div class="detail-grid-option">
+                  <a href="./calculator/beef.html">
+                    <h4>Sarutoga Ribeye</h4>
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="padding: 10px; padding-top: 0px">
+                <div class="detail-grid-option">
+                  <a href="./calculator/beef.html">
+                    <h4>Sarutoga Ribeye</h4>
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="padding: 10px; padding-top: 0px">
+                <div class="detail-grid-option">
+                  <a href="./calculator/beef.html">
+                    <h4>Sarutoga Ribeye</h4>
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="padding: 10px; padding-top: 0px">
+                <div class="detail-grid-option">
+                  <a href="./calculator/beef.html">
+                    <h4>Sarutoga Ribeye</h4>
+                  </a>
+                </div>
+              </div>
+              <div class="row" style="padding: 10px; padding-top: 0px">
+                <div class="detail-grid-option">
+                  <a href="./calculator/beef.html">
+                    <h4>Sarutoga Ribeye</h4>
+                  </a>
+                </div>
+              </div>-->
+            </div>
 
-          <div class="col-lg-1"></div>
-          <div class="col-lg-2">
-            <div style="margin-right: 40px">
-              <div
-                class="row"
-                style="border: 1px solid gray; padding: 8px; border-radius: 8px"
-              >
-                <h6
-                  style="display: block; margin-left: auto; margin-right: auto"
+            <div class="col-lg-1"></div>
+            <div class="col-lg-2">
+              <div style="margin-right: 40px">
+                <div
+                  class="row"
+                  style="
+                    border: 1px solid gray;
+                    padding: 8px;
+                    border-radius: 8px;
+                  "
                 >
-                  Preferences
-                </h6>
-                <ul
-                  class="nav nav-pills nav-justified flex-column flex-sm-row rounded"
-                  id="pills-tab"
-                  role="tablist"
-                  style="width: 100%; margin: 0px; margin-bottom: 2px"
-                >
-                  <li class="nav-item">
-                    <a
-                      class="nav-link rounded active"
-                      id="pills-cloud-tab"
-                      data-toggle="pill"
-                      role="tab"
-                      aria-controls="pills-cloud"
-                      aria-selected="false"
-                    >
-                      <div class="text-center py-2">
-                        <h6 class="mb-0">&#8451;</h6>
-                      </div>
-                    </a>
-                    <!--end nav link-->
-                  </li>
-                  <!--end nav item-->
+                  <h6
+                    style="
+                      display: block;
+                      margin-left: auto;
+                      margin-right: auto;
+                    "
+                  >
+                    Preferences
+                  </h6>
+                  <ul
+                    class="nav nav-pills nav-justified flex-column flex-sm-row rounded"
+                    id="pills-tab"
+                    role="tablist"
+                    style="width: 100%; margin: 0px; margin-bottom: 2px"
+                  >
+                    <li class="nav-item">
+                      <a
+                        class="nav-link rounded active"
+                        id="pills-cloud-tab"
+                        data-toggle="pill"
+                        role="tab"
+                        aria-controls="pills-cloud"
+                        aria-selected="false"
+                      >
+                        <div class="text-center py-2">
+                          <h6 class="mb-0">&#8451;</h6>
+                        </div>
+                      </a>
+                      <!--end nav link-->
+                    </li>
+                    <!--end nav item-->
 
-                  <li class="nav-item">
-                    <a
-                      class="nav-link rounded"
-                      id="pills-smart-tab"
-                      data-toggle="pill"
-                      role="tab"
-                      aria-controls="pills-smart"
-                      aria-selected="false"
-                    >
-                      <div class="text-center py-2">
-                        <h6 class="mb-0">&#8457;</h6>
-                      </div>
-                    </a>
-                    <!--end nav link-->
-                  </li>
-                  <!--end nav item-->
-                </ul>
-                <ul
-                  class="nav nav-pills nav-justified flex-column flex-sm-row rounded"
-                  id="pills-tab"
-                  role="tablist"
-                  style="width: 100%; margin: 0px; margin-bottom: 2px"
-                >
-                  <li class="nav-item">
-                    <a
-                      class="nav-link rounded active"
-                      id="pills-cloud-tab"
-                      data-toggle="pill"
-                      role="tab"
-                      aria-controls="pills-cloud"
-                      aria-selected="false"
-                    >
-                      <div class="text-center py-2">
-                        <h6 class="mb-0">mm</h6>
-                      </div>
-                    </a>
-                    <!--end nav link-->
-                  </li>
-                  <!--end nav item-->
+                    <li class="nav-item">
+                      <a
+                        class="nav-link rounded"
+                        id="pills-smart-tab"
+                        data-toggle="pill"
+                        role="tab"
+                        aria-controls="pills-smart"
+                        aria-selected="false"
+                      >
+                        <div class="text-center py-2">
+                          <h6 class="mb-0">&#8457;</h6>
+                        </div>
+                      </a>
+                      <!--end nav link-->
+                    </li>
+                    <!--end nav item-->
+                  </ul>
+                  <ul
+                    class="nav nav-pills nav-justified flex-column flex-sm-row rounded"
+                    id="pills-tab"
+                    role="tablist"
+                    style="width: 100%; margin: 0px; margin-bottom: 2px"
+                  >
+                    <li class="nav-item">
+                      <a
+                        class="nav-link rounded active"
+                        id="pills-cloud-tab"
+                        data-toggle="pill"
+                        role="tab"
+                        aria-controls="pills-cloud"
+                        aria-selected="false"
+                      >
+                        <div class="text-center py-2">
+                          <h6 class="mb-0">mm</h6>
+                        </div>
+                      </a>
+                      <!--end nav link-->
+                    </li>
+                    <!--end nav item-->
 
-                  <li class="nav-item">
-                    <a
-                      class="nav-link rounded"
-                      id="pills-smart-tab"
-                      data-toggle="pill"
-                      role="tab"
-                      aria-controls="pills-smart"
-                      aria-selected="false"
-                    >
-                      <div class="text-center py-2">
-                        <h6 class="mb-0">in</h6>
-                      </div>
-                    </a>
-                    <!--end nav link-->
-                  </li>
-                  <!--end nav item-->
-                </ul>
-                <ul
-                  class="nav nav-pills nav-justified flex-column flex-sm-row rounded"
-                  id="pills-tab"
-                  role="tablist"
-                  style="width: 100%; margin: 0px"
-                >
-                  <li class="nav-item">
-                    <a
-                      class="nav-link rounded active"
-                      id="pills-cloud-tab"
-                      data-toggle="pill"
-                      role="tab"
-                      aria-controls="pills-cloud"
-                      aria-selected="false"
-                    >
-                      <div class="text-center py-2">
-                        <h6 class="mb-0">g</h6>
-                      </div>
-                    </a>
-                    <!--end nav link-->
-                  </li>
-                  <!--end nav item-->
+                    <li class="nav-item">
+                      <a
+                        class="nav-link rounded"
+                        id="pills-smart-tab"
+                        data-toggle="pill"
+                        role="tab"
+                        aria-controls="pills-smart"
+                        aria-selected="false"
+                      >
+                        <div class="text-center py-2">
+                          <h6 class="mb-0">in</h6>
+                        </div>
+                      </a>
+                      <!--end nav link-->
+                    </li>
+                    <!--end nav item-->
+                  </ul>
+                  <ul
+                    class="nav nav-pills nav-justified flex-column flex-sm-row rounded"
+                    id="pills-tab"
+                    role="tablist"
+                    style="width: 100%; margin: 0px"
+                  >
+                    <li class="nav-item">
+                      <a
+                        class="nav-link rounded active"
+                        id="pills-cloud-tab"
+                        data-toggle="pill"
+                        role="tab"
+                        aria-controls="pills-cloud"
+                        aria-selected="false"
+                      >
+                        <div class="text-center py-2">
+                          <h6 class="mb-0">g</h6>
+                        </div>
+                      </a>
+                      <!--end nav link-->
+                    </li>
+                    <!--end nav item-->
 
-                  <li class="nav-item">
-                    <a
-                      class="nav-link rounded"
-                      id="pills-smart-tab"
-                      data-toggle="pill"
-                      role="tab"
-                      aria-controls="pills-smart"
-                      aria-selected="false"
-                    >
-                      <div class="text-center py-2">
-                        <h6 class="mb-0">oz</h6>
-                      </div>
-                    </a>
-                    <!--end nav link-->
-                  </li>
-                  <!--end nav item-->
-                </ul>
+                    <li class="nav-item">
+                      <a
+                        class="nav-link rounded"
+                        id="pills-smart-tab"
+                        data-toggle="pill"
+                        role="tab"
+                        aria-controls="pills-smart"
+                        aria-selected="false"
+                      >
+                        <div class="text-center py-2">
+                          <h6 class="mb-0">oz</h6>
+                        </div>
+                      </a>
+                      <!--end nav link-->
+                    </li>
+                    <!--end nav item-->
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
+          <!--end row-->
         </div>
-        <!--end row-->
-      </div>
-      <!--end container-->
-    </section>
-    <!--end section-->
+        <!--end container-->
+      </section>
+      <!--end section-->
+    </div>
     <!-- Hero End -->
 
     <!--end footer-->

@@ -2,27 +2,41 @@ function animal_select(index, animalNameEn, animalNameDe) {
   sessionStorage.setItem("index", index);
   sessionStorage.setItem("animalNameEn", animalNameEn);
   sessionStorage.setItem("animalNameDe", animalNameDe);
+  show_cuts_view();
 }
 
 function cut_select(cutCode, cutName) {
   sessionStorage.setItem("cutCode", cutCode);
   sessionStorage.setItem("cutName", cutName);
+  show_parameter_view();
 }
 
-if (window.location.pathname == "/calculator/cut.html") {
-  if (!sessionStorage.getItem("index")) {
-    window.location.replace("/calculator/animal.html");
-  } else {
-    $("#animalNameEn").text(sessionStorage.getItem("animalNameEn"));
-    show_cut_list();
-  }
-} else if (window.location.pathname == "/calculator/parameter.html") {
-  if (!sessionStorage.getItem("index") || !sessionStorage.getItem("cutCode")) {
-    window.location.replace("/calculator/animal.html");
-  } else {
-    $("#animalName").text(sessionStorage.getItem("animalNameEn"));
-    $("#cutName").text(sessionStorage.getItem("cutName"));
-    configureInputField();
+function show_cuts_view() {
+  $("#animalSelectView").hide();
+  $("#cutSelectView").show();
+  $("#animalNameEn").text(sessionStorage.getItem("animalNameEn"));
+  show_cut_list();
+}
+function show_parameter_view() {
+  $("#cutSelectView").hide();
+  $("#parameterSelectView").show();
+  $("#animalName").text(sessionStorage.getItem("animalNameEn"));
+  $("#cutName").text(sessionStorage.getItem("cutName"));
+  configureInputField();
+}
+
+function show_animal_view() {
+  $("#cutSelectView").hide();
+  $("#parameterSelectView").hide();
+  $("#animalSelectView").show();
+}
+show_animal_view();
+
+function goBack(view) {
+  if (view == "animal") {
+    show_animal_view();
+  } else if (view == "cut") {
+    show_cuts_view();
   }
 }
 
@@ -35,12 +49,13 @@ function show_cut_list() {
       // do stuff with response.
       let index = sessionStorage.getItem("index");
       var cutList = [];
+      $("#cutList").empty();
       for (let cutCode in response[index].cuts) {
         for (let i in response[index].cuts[cutCode].name.en) {
           let cutName = response[index].cuts[cutCode].name.en[i];
           //   let cutName = response[index]["cuts"][cutCode]["name"]["en"][j];
           cutItem =
-            '<div class="row cutList" style="padding: 10px; padding-top: 9px"><div class="detail-grid-option"><a href="parameter.html" onclick="cut_select(\'' +
+            '<div class="row cutList" style="padding: 10px; padding-top: 9px"><div class="detail-grid-option"><a href="javascript:cut_select(\'' +
             cutCode +
             "','" +
             cutName +
@@ -81,10 +96,13 @@ function configureInputField() {
       // do stuff with response.
 
       // Set doneness
+      $("#measurementId").show();
+      $("#weightSelectButtonID").attr("data-toggle", "pill");
+      $("#weightSelectButtonTextID").css("text-decoration-line", "");
 
       let index = sessionStorage.getItem("index");
       let cutCode = sessionStorage.getItem("cutCode");
-
+      $("#selectDoneness").empty();
       if (!response[index].cuts[cutCode].weight) {
         for (let doneness in response[index].cuts[cutCode].size) {
           $("#selectDoneness").append(new Option(doneness, doneness));
@@ -103,7 +121,12 @@ function configureInputField() {
       } else if (
         response[index].cuts[cutCode].weight[donenessTmp].values.length < 2
       ) {
+        console.log("Yes");
         $("#weightSelectButtonID").attr("data-toggle", "blank");
+        $("#weightSelectButtonTextID").css(
+          "text-decoration-line",
+          "line-through"
+        );
       }
 
       //end
