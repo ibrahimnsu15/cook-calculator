@@ -65,7 +65,6 @@ function searchCuts() {
   var input, filter, divList, li, a, i, txtValue;
   input = $("#searchInput").val();
   filter = input.toUpperCase();
-  console.log(filter);
   divList = $(".cutList");
   li = $(".cutName");
   for (i = 0; i < li.length; i++) {
@@ -268,7 +267,7 @@ function customTimeformat(mm) {
   let hh = parseInt(mm / 60);
 
   mm = mm % 60;
-  let timeStr = "";
+  let timeStre = "";
   if (hh > 0) {
     if (hh == 1) {
       timeStr = hh + " hour ";
