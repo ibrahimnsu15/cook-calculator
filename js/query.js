@@ -13,6 +13,7 @@ function cut_select(cutCode, cutName) {
 
 function show_cuts_view() {
   $("#animalSelectView").hide();
+  $("#parameterSelectView").hide();
   $("#cutSelectView").show();
   $("#animalNameEn").text(sessionStorage.getItem("animalNameEn"));
   show_cut_list();
