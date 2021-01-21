@@ -87,6 +87,20 @@ function searchCuts() {
   }
 }
 
+function weight_button_click(){
+  console.log("Weight button");
+  if($("#weightSelectButtonID").attr("data-toggle",)!="blank"){
+    $("#measurementInputId").attr("placeholder", "Weight");
+    $("#maxId").text("Max 5000");
+  }
+}
+
+function thickness_button_click(){
+  console.log("Thickness button");
+  $("#measurementInputId").attr("placeholder", "Thickness");
+  $("#maxId").text("Max 100");
+}
+
 function configureInputField() {
   $("#resultId").hide();
   $.ajax({
@@ -100,6 +114,11 @@ function configureInputField() {
       $("#measurementId").show();
       $("#weightSelectButtonID").attr("data-toggle", "pill");
       $("#weightSelectButtonTextID").css("text-decoration-line", "");
+
+      $("#thicknessSelectButtonID").addClass("active");
+      $("#measurementInputId").attr("placeholder", "Thickness");
+      $("#maxId").text("Max 100");
+      $("#weightSelectButtonID").removeClass("active");
 
       let index = sessionStorage.getItem("index");
       let cutCode = sessionStorage.getItem("cutCode");
@@ -156,11 +175,11 @@ function calculate() {
   let inputValue = 0;
   if ($("#thicknessSelectButtonID").attr("aria-selected") == "true") {
     weightOrSize = "size";
-    inputValue = $("#thicknessInputId").val();
+    inputValue = $("#measurementInputId").val();
     inputValue = parseInt(inputValue);
     inputValue = convertToGram(inputValue);
   } else {
-    inputValue = $("#weightInputId").val();
+    inputValue = $("#measurementInputId").val();
     inputValue = parseInt(inputValue);
     inputValue = convertToGram(inputValue);
   }
@@ -292,3 +311,8 @@ function customTimeformat(mm) {
   }
   return timeStr;
 }
+
+$(".accordion__head .down-arrow").click(function () {
+  $(".accordion").toggleClass("accordion--expanded");
+  $(".accordion__content").slideToggle(280);
+});
