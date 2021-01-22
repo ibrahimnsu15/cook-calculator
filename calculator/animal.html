@@ -536,7 +536,7 @@
                         style="width: 100%; margin: 0px; margin-bottom: 2px">
                         <li class="nav-item">
                           <a id="cSelectId" class="nav-link rounded active" data-toggle="pill" role="tab"
-                            aria-controls="pills-cloud" aria-selected="true">
+                            aria-controls="pills-cloud" aria-selected="true" onclick="changeTemperatureUnit('c')">
                             <div class="text-center py-2">
                               <h6 class="mb-0">&#8451;</h6>
                             </div>
@@ -546,8 +546,8 @@
                         <!--end nav item-->
       
                         <li class="nav-item">
-                          <a class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
-                            aria-selected="false">
+                          <a id="fSelectId" class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
+                            aria-selected="false" onclick="changeTemperatureUnit('f')">
                             <div class="text-center py-2">
                               <h6 class="mb-0">&#8457;</h6>
                             </div>
@@ -560,7 +560,7 @@
                         style="width: 100%; margin: 0px; margin-bottom: 2px">
                         <li class="nav-item">
                           <a id="mmSelectId" class="nav-link rounded active" data-toggle="pill" role="tab"
-                            aria-controls="pills-cloud" aria-selected="true">
+                            aria-controls="pills-cloud" aria-selected="true" onclick="changeSizeUnit('mm')">
                             <div class="text-center py-2">
                               <h6 class="mb-0">mm</h6>
                             </div>
@@ -570,8 +570,8 @@
                         <!--end nav item-->
       
                         <li class="nav-item">
-                          <a class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
-                            aria-selected="false">
+                          <a id ="inSelectId" class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
+                            aria-selected="false" onclick="changeSizeUnit('in')">
                             <div class="text-center py-2">
                               <h6 class="mb-0">in</h6>
                             </div>
@@ -584,7 +584,7 @@
                         style="width: 100%; margin: 0px">
                         <li class="nav-item">
                           <a id="gSelectId" class="nav-link rounded active" data-toggle="pill" role="tab"
-                            aria-controls="pills-cloud" aria-selected="true">
+                            aria-controls="pills-cloud" aria-selected="true" onclick="changeWeightUnit('g')">
                             <div class="text-center py-2">
                               <h6 class="mb-0">g</h6>
                             </div>
@@ -594,8 +594,8 @@
                         <!--end nav item-->
       
                         <li class="nav-item">
-                          <a class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
-                            aria-selected="false">
+                          <a id="ozSelectId" class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
+                            aria-selected="false" onclick="changeWeightUnit('oz')">
                             <div class="text-center py-2">
                               <h6 class="mb-0">oz</h6>
                             </div>
@@ -760,7 +760,7 @@
                   style="width: 100%; margin: 0px; margin-bottom: 2px">
                   <li class="nav-item">
                     <a id="cSelectId" class="nav-link rounded active" data-toggle="pill" role="tab"
-                      aria-controls="pills-cloud" aria-selected="true">
+                      aria-controls="pills-cloud" aria-selected="true" onclick="changeTemperatureUnit('c')">
                       <div class="text-center py-2">
                         <h6 class="mb-0">&#8451;</h6>
                       </div>
@@ -770,8 +770,8 @@
                   <!--end nav item-->
 
                   <li class="nav-item">
-                    <a class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
-                      aria-selected="false">
+                    <a id="fSelectId" class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
+                      aria-selected="false" onclick="changeTemperatureUnit('f')">
                       <div class="text-center py-2">
                         <h6 class="mb-0">&#8457;</h6>
                       </div>
@@ -784,7 +784,7 @@
                   style="width: 100%; margin: 0px; margin-bottom: 2px">
                   <li class="nav-item">
                     <a id="mmSelectId" class="nav-link rounded active" data-toggle="pill" role="tab"
-                      aria-controls="pills-cloud" aria-selected="true">
+                      aria-controls="pills-cloud" aria-selected="true" onclick="changeSizeUnit('mm')">
                       <div class="text-center py-2">
                         <h6 class="mb-0">mm</h6>
                       </div>
@@ -794,8 +794,8 @@
                   <!--end nav item-->
 
                   <li class="nav-item">
-                    <a class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
-                      aria-selected="false">
+                    <a id="inSelectId" class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
+                      aria-selected="false" onclick="changeSizeUnit('in')">
                       <div class="text-center py-2">
                         <h6 class="mb-0">in</h6>
                       </div>
@@ -808,7 +808,7 @@
                   style="width: 100%; margin: 0px">
                   <li class="nav-item">
                     <a id="gSelectId" class="nav-link rounded active" data-toggle="pill" role="tab"
-                      aria-controls="pills-cloud" aria-selected="true">
+                      aria-controls="pills-cloud" aria-selected="true" onclick="changeWeightUnit('g')">
                       <div class="text-center py-2">
                         <h6 class="mb-0">g</h6>
                       </div>
@@ -818,8 +818,8 @@
                   <!--end nav item-->
 
                   <li class="nav-item">
-                    <a class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
-                      aria-selected="false">
+                    <a id="ozSelectId" class="nav-link rounded" data-toggle="pill" role="tab" aria-controls="pills-smart"
+                      aria-selected="false" onclick="changeWeightUnit('oz')">
                       <div class="text-center py-2">
                         <h6 class="mb-0">oz</h6>
                       </div>

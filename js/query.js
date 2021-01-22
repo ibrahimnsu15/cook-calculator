@@ -1,3 +1,4 @@
+var page=0;
 function animal_select(index, animalNameEn, animalNameDe) {
   sessionStorage.setItem("index", index);
   sessionStorage.setItem("animalNameEn", animalNameEn);
@@ -17,6 +18,7 @@ function show_cuts_view() {
   $("#cutSelectView").show();
   $("#animalNameEn").text(sessionStorage.getItem("animalNameEn"));
   show_cut_list();
+  page=1;
 }
 function show_parameter_view() {
   $("#cutSelectView").hide();
@@ -24,19 +26,21 @@ function show_parameter_view() {
   $("#animalName").text(sessionStorage.getItem("animalNameEn"));
   $("#cutName").text(sessionStorage.getItem("cutName"));
   configureInputField();
+  page=2;
 }
 
 function show_animal_view() {
   $("#cutSelectView").hide();
   $("#parameterSelectView").hide();
   $("#animalSelectView").show();
+  page=0;
 }
 show_animal_view();
 
-function goBack(view) {
-  if (view == "animal") {
+function goBack() {
+  if (page == 1) {
     show_animal_view();
-  } else if (view == "cut") {
+  } else if (page == 2) {
     show_cuts_view();
   }
 }
@@ -56,7 +60,7 @@ function show_cut_list() {
           let cutName = response[index].cuts[cutCode].name.en[i];
           //   let cutName = response[index]["cuts"][cutCode]["name"]["en"][j];
           cutItem =
-            '<div class="row cutList" style="padding: 10px; padding-top: 9px"><div class="detail-grid-option"><a href="javascript:cut_select(\'' +
+            '<div class="row cutList" style="padding: 2px; padding-top: 2px"><div class="detail-grid-option"><a href="javascript:cut_select(\'' +
             cutCode +
             "','" +
             cutName +
@@ -88,7 +92,7 @@ function searchCuts() {
 }
 
 function weight_button_click(){
-  console.log("Weight button");
+  // console.log("Weight button");
   if($("#weightSelectButtonID").attr("data-toggle",)!="blank"){
     $("#measurementInputId").attr("placeholder", "Weight");
     $("#maxId").text("Max 5000");
@@ -96,7 +100,7 @@ function weight_button_click(){
 }
 
 function thickness_button_click(){
-  console.log("Thickness button");
+  // console.log("Thickness button");
   $("#measurementInputId").attr("placeholder", "Thickness");
   $("#maxId").text("Max 100");
 }
@@ -141,7 +145,7 @@ function configureInputField() {
       } else if (
         response[index].cuts[cutCode].weight[donenessTmp].values.length < 2
       ) {
-        console.log("Yes");
+        // console.log("Yes");
         $("#weightSelectButtonID").attr("data-toggle", "blank");
         $("#weightSelectButtonTextID").css(
           "text-decoration-line",
@@ -203,7 +207,7 @@ function calculate() {
           let flag = true;
           let max = 1000;
           for (let i in response[index].cuts[cutCode].weight[doneness].values) {
-            console.log(inputValue);
+            /* console.log(inputValue);
             console.log(
               "Low " +
                 response[index].cuts[cutCode].weight[doneness].values[i].low
@@ -219,7 +223,7 @@ function calculate() {
             console.log(
               response[index].cuts[cutCode].weight[doneness].values[i].high >=
                 inputValue
-            );
+            );*/
 
             if (
               response[index].cuts[cutCode].weight[doneness].values[i].low <=
@@ -240,7 +244,7 @@ function calculate() {
           }
 
           if (flag) {
-            alert("Weight should be less then " + max + "g");
+            alert("Weight should be less then " + maxWeightLimit(max));
           }
         }
       } else {
@@ -268,7 +272,7 @@ function calculate() {
             max = response[index].cuts[cutCode].size[doneness].values[i].size;
           }
           if (flag) {
-            alert("Size should be less then " + max + "mm");
+            alert("Size should be less then " + maxSizeLimit(max));
           }
         }
       }
@@ -276,6 +280,28 @@ function calculate() {
       //end
     },
   });
+}
+
+
+function maxSizeLimit(max){
+  // console.log("max size");
+  // console.log($("#mmSelectId").attr("aria-selected"));
+  if ($("#mmSelectId").attr("aria-selected") == "true") {
+    return max+"mm";
+  }
+  let m = max*0.0393701;
+  m = m.toFixed(2);
+  return  m+"inch";
+}
+
+
+function maxWeightLimit(max){
+  if ($("#gSelectId").attr("aria-selected") == "true") {
+    return max+"g";
+  }
+  let m = max*0.035274;
+  m = m.toFixed(2);
+  return  m+"oz";
 }
 
 function set_result(temperature, duration) {
@@ -292,6 +318,52 @@ function set_result(temperature, duration) {
   }
 
   $("#durationResult").text(customTimeformat(duration));
+}
+
+function changeWeightUnit(unit){
+  // console.log("Change wieght "+unit);
+  if(unit=="g"){
+    $("#gSelectId").addClass("active");
+    $("#gSelectId").attr("aria-selected","true");
+    $("#ozSelectId").removeClass("active");
+    $("#ozSelectId").attr("aria-selected","false");
+  }else{
+    $("#gSelectId").removeClass("active");
+    $("#gSelectId").attr("aria-selected","false");
+    $("#ozSelectId").addClass("active");
+    $("#ozSelectId").attr("aria-selected","true");
+  }
+}
+
+
+function changeSizeUnit(unit){
+  // console.log("Change Size "+unit);
+  if(unit=="mm"){
+    $("#mmSelectId").addClass("active");
+    $("#mmSelectId").attr("aria-selected","true");
+    $("#inSelectId").removeClass("active");
+    $("#inSelectId").attr("aria-selected","false");
+  }else{
+    $("#mmSelectId").removeClass("active");
+    $("#mmSelectId").attr("aria-selected","false");
+    $("#inSelectId").addClass("active");
+    $("#inSelectId").attr("aria-selected","true");
+  }
+}
+
+function changeTemperatureUnit(unit){
+  // console.log("Change Size "+unit);
+  if(unit=="c"){
+    $("#cSelectId").addClass("active");
+    $("#cSelectId").attr("aria-selected","true");
+    $("#fSelectId").removeClass("active");
+    $("#fSelectId").attr("aria-selected","false");
+  }else{
+    $("#cSelectId").removeClass("active");
+    $("#cSelectId").attr("aria-selected","false");
+    $("#fSelectId").addClass("active");
+    $("#fSelectId").attr("aria-selected","true");
+  }
 }
 
 function customTimeformat(mm) {
@@ -316,3 +388,5 @@ $(".accordion__head .down-arrow").click(function () {
   $(".accordion").toggleClass("accordion--expanded");
   $(".accordion__content").slideToggle(280);
 });
+
+
