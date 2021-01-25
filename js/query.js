@@ -245,6 +245,7 @@ function calculate() {
 
           if (flag) {
             alert("Weight should be less then " + maxWeightLimit(max));
+            $("#maxId").text("Max "+maxWeightLimit(max));
           }
         }
       } else {
@@ -273,6 +274,7 @@ function calculate() {
           }
           if (flag) {
             alert("Size should be less then " + maxSizeLimit(max));
+            $("#maxId").text("Max "+maxSizeLimit(max));
           }
         }
       }
